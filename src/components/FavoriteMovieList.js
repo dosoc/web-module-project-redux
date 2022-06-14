@@ -9,9 +9,8 @@ import { Link } from 'react-router-dom';
 const FavoriteMovieList = (props) => {
     const { push } = useHistory();
 
-    const handleRemove = (e) => {
-        const ID = Number(e.target.id)
-        props.removeFavorite(ID)
+    const handleRemove = (id) => {
+        props.removeFavorite(id)
     }
     
     return (<div className="col-xs savedContainer">
@@ -21,7 +20,7 @@ const FavoriteMovieList = (props) => {
                 return <div key={movie.id}>
                     <Link className="btn btn-light savedButton" to={`/movies/${movie.id}`}>
                         {movie.title}
-                        <span><span id={movie.id} onClick={handleRemove} className="material-icons">remove_circle</span></span>
+                        <span><span id={movie.id} onClick={()=>handleRemove(movie.id)} className="material-icons">remove_circle</span></span>
                     </Link> 
                 </div>
             })
