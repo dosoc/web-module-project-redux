@@ -71,7 +71,7 @@ const AddMovieForm = (props) => {
 }
 const mapStateToProps = state => {
     return{
-        movies: state.movies
+        movies: state.movies.movies
     }
 }
 export default connect(mapStateToProps, {addMovie})(AddMovieForm);
